@@ -2,6 +2,11 @@
   width: 100%;
 }
 
+h1 {
+  font-weight: bold;
+  font-size: 50px;
+}
+
 .loading {
   width: 100%;
   margin-top: 10px;
@@ -13,4 +18,5 @@
 .list-header div {
   font-weight: bold;
   width: 33%;
+  color: #111;
 }

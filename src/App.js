@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
+import { Route } from 'react-router-dom';
 import { Layout } from 'antd';
 import ContactList from './ContactList';
+import ContactView from './ContactView';
 import logo from './sibi.png';
 import './App.css';
 
@@ -12,10 +14,11 @@ class App extends Component {
       <div>
         <Layout>
           <Header>
-            <img src={logo} style={{ height: "100%" }} alt="logo"></img>
+            <img src={logo} style={{ height: "90%" }} alt="logo"></img>
           </Header>
           <Content>
-            <ContactList></ContactList>
+            <Route exact path="/" component={ ContactList } />
+            <Route path="/contacts/:id" component={ ContactView } />
           </Content>
         </Layout>
       </div>

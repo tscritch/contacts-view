@@ -76,6 +76,8 @@ class ContactList extends Component {
     return (
       <div className="ContactList">
 
+        <h1>Contacts</h1>
+
         <ContactSearch handleSearch={ this.fuzzySearch } isDisabled={ this.state.isLoading }></ContactSearch>
 
         <div className="list-header">

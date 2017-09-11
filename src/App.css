@@ -5,9 +5,9 @@
 .ant-layout-header {
   background-color: white;
   box-shadow: 0px 0px 20px 0px rgba(0, 0, 0, 0.15);
-  padding: 14px;
+  padding: 10px 14px 24px;
 }
 
 .ant-layout-content {
-  padding: 30px;
+  padding: 10px 30px 30px;
 }
