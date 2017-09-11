@@ -1,3 +1,100 @@
 .ContactView {
-  padding: 40px;
+  /*padding: 40px;*/
+}
+
+.ContactView .header {
+  height: 100%;
+  width: 100%;
+  padding: 20px 20px;
+  /*background: linear-gradient(120deg, #00c6ff, #0072ff);*/
+}
+
+.ContactView .information {
+  width: 100%;
+  padding: 30px 60px;
+  color: white;
+  display: inline-flex;
+  flex-wrap: wrap;
+}
+
+.ContactView .information .personal {
+  width: 40%;
+  margin: 0;
+}
+
+.ContactView .information .personal h1 {
+  font-size: 50px;
+  font-weight: bold;
+  color: white;
+  display: inline-block;
+}
+
+.ContactView .information .personal .details {
+  font-size: 18px;
+}
+
+.ContactView .information .personal .contact {
+  margin-top: 10px;
+}
+
+.ContactView .information .personal .contact a {
+  font-size: 14px;
+  color: white;
+}
+
+.ContactView .information .personal .occupation {
+  font-size: 14px;
+  margin-top: 10px;
+}
+
+.ContactView .information .address {
+  width: 30%;
+  font-size: 18px;
+  display: inline-block;
+  padding: 0 20px;
+}
+
+.ContactView .information .address .text {
+  padding: 0;
+}
+.ContactView .information .address .text p {
+  /*margin-top: -20px;*/
+  /*padding: 0px 20px;*/
+}
+
+.ContactView .information .address .map {
+  display: inline-block;
+  border-radius: 100px;
+  overflow: hidden;
+  height: 100px;
+  width: 100px;
+  margin-top: 20px;
+}
+
+.ContactView .information .map img {
+  display: inline;
+  transform: translate(-16%, -10%);
+}
+
+.ContactView .information .creditcard {
+  width: 30%;
+  display: inline-block;
+}
+
+.ContactView .more-details {
+  padding: 30px 60px;
+}
+
+.ContactView .more-details h2 {
+  font-size: 30px;
+  font-weight: bold;
+}
+
+.ContactView .more-details h4 {
+  font-size: 16px;
+  font-weight: bold;
+}
+
+.ContactView .more-details p {
+  font-size: 12px;
 }
