@@ -1,9 +1,11 @@
 import React, { Component } from 'react';
-import { Spin } from 'antd';
+import { Spin, Layout } from 'antd';
 import Fuse from 'fuse.js';
 import ContactSearch from './ContactSearch';
 import Contact from './Contact';
 import './ContactList.css';
+
+const { Content } = Layout;
 
 const fuseOptions = {
   shouldSort: true,
@@ -74,21 +76,23 @@ class ContactList extends Component {
     });
 
     return (
-      <div className="ContactList">
+      <Content>
+        <div className="ContactList">
 
-        <h1>Contacts</h1>
+          <h1>Contacts</h1>
 
-        <ContactSearch handleSearch={ this.fuzzySearch } isDisabled={ this.state.isLoading }></ContactSearch>
+          <ContactSearch handleSearch={ this.fuzzySearch } isDisabled={ this.state.isLoading }></ContactSearch>
 
-        <div className="list-header">
-          <div>First Name</div>
-          <div>Last Name</div>
-          <div>Email</div>
+          <div className="list-header">
+            <div>First Name</div>
+            <div>Last Name</div>
+            <div>Email</div>
+          </div>
+
+          { this.state.isLoading ? <Spin className="loading"></Spin> : contacts }
+
         </div>
-
-        { this.state.isLoading ? <Spin className="loading"></Spin> : contacts }
-
-      </div>
+      </Content>
     );
   }
 }

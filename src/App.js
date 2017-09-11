@@ -6,7 +6,7 @@ import ContactView from './ContactView';
 import logo from './sibi.png';
 import './App.css';
 
-const { Header, Content } = Layout;
+const { Header } = Layout;
 
 class App extends Component {
   render() {
@@ -16,10 +16,8 @@ class App extends Component {
           <Header>
             <img src={logo} style={{ height: "90%" }} alt="logo"></img>
           </Header>
-          <Content>
-            <Route exact path="/" component={ ContactList } />
-            <Route path="/contacts/:id" component={ ContactView } />
-          </Content>
+          <Route exact path="/" component={ ContactList } />
+          <Route path="/contacts/:id" component={ ContactView } />
         </Layout>
       </div>
 
