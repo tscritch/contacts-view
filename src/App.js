@@ -11,7 +11,7 @@ class App extends Component {
     return (
       <div>
         <Layout>
-          <Header style={{ paddingTop: "14px", paddingBottom: "14px" }}>
+          <Header>
             <img src={logo} style={{ height: "100%" }} alt="logo"></img>
           </Header>
           <Content>

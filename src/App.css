@@ -1,7 +1,13 @@
 .ant-layout {
-  background: white;
+  background: #f4f7fc;
+}
+
+.ant-layout-header {
+  background-color: white;
+  box-shadow: 0px 0px 20px 0px rgba(0, 0, 0, 0.15);
+  padding: 14px;
 }
 
 .ant-layout-content {
-  padding: 20px;
+  padding: 30px;
 }
