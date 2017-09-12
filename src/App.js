@@ -15,6 +15,7 @@ class App extends Component {
         <Layout>
           <Header>
             <img src={logo} style={{ height: "90%" }} alt="logo"></img>
+            <div className="link"><a href="https://sibi-form-tadscritch.herokuapp.com"><p>Create Contact</p></a></div>
           </Header>
           <Route exact path="/" component={ ContactList } />
           <Route path="/contacts/:id" component={ ContactView } />
