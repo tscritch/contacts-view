@@ -45,6 +45,44 @@ const getBackground = (value) => {
   return color;
 }
 
+const defaultContact = {
+  title: '',
+  gender: '',
+  firstname: '',
+  middleinitial: '',
+  lastname: '',
+  streetAddress: '',
+  city: '',
+  state: '',
+  zipcode: '',
+  country: '',
+  email: '',
+  username: '',
+  password: '',
+  browser: '',
+  phone: '',
+  phoneCountryCode: '',
+  mothersMadien: '',
+  birthday: '',
+  age: '',
+  ccType: '',
+  ccNumber: '',
+  ccv2: '',
+  ccExpires: '',
+  nationalId: '',
+  ups: '',
+  westernUnionMTCN: '',
+  moneyGramMTCN: '',
+  color: '',
+  occupation: '',
+  company: '',
+  vehicle: '',
+  domain: '',
+  guid: '',
+  latitude: '',
+  longitude: ''
+};
+
 class ContactView extends Component {
 
   state = {
@@ -59,7 +97,7 @@ class ContactView extends Component {
       })
       .then((data) => {
         this.setState({
-          contact: { ...data },
+          contact: Object.assign({}, defaultContact, data),
           isLoading: false
         });
       })
@@ -73,23 +111,23 @@ class ContactView extends Component {
     const background = c ? getBackground(c.color) : 'linear-gradient(120deg, #00c6ff, #0072ff)';
 
     const info = c ? {
-      name: (<h1>{ c.title === 'Dr.' ?  'Dr. ' : '' }{ `${c.firstname} ${c.middleinitial}.` }<br/>{ c.lastname }</h1>),
+      name: (<h1>{ c.title === 'Dr.' ?  'Dr. ' : '' }{ `${c.firstname} ${c.middleinitial ? c.middleinitial + '.' : ''}` }<br/>{ c.lastname || '' }</h1>),
       personal: (<div className="details">
-        <p>{ `${c.gender[0].toUpperCase() + c.gender.slice(1)} | ${moment(c.birthday).format("MMMM, Do YYYY")} | @${c.username}`}</p>
+        <p>{ `${c.gender ? (c.gender[0].toUpperCase() + c.gender.slice(1) + ' | ') : ''}${c.birthday ? moment(c.birthday).format("MMMM, Do YYYY") + ' | ' : ''}${c.username ? '@' + c.username : ''}`}</p>
       </div>),
       contact: (<div className="contact">
         <p>
-          <a href={`mailto:${c.email}`}><Icon type="mail" /> { `${c.email.toLowerCase()}` }</a><br/>
-          <a href={`tel:${c.phoneCountryCode + c.phone}`}><Icon type="phone" /> {`+${c.phoneCountryCode} ${c.phone}`}</a>
+          <a href={`mailto:${c.email || ''}`}><Icon type="mail" /> { `${c.email ? c.email.toLowerCase() : ''}` }</a><br/>
+          <a href={`tel:${c.phoneCountryCode || ''}${c.phone || ''}`}><Icon type="phone" /> {`${c.phoneCountryCode ? '+' + c.phoneCountryCode : ''} ${c.phone || ''}`}</a>
         </p>
       </div>),
       occupation: (<div className="occupation">
-        <p>{ `${c.occupation} at ${c.company}`}</p>
+        <p>{ `${c.occupation ? c.occupation + ' at ' : ''}${c.company || ''}`}</p>
       </div>),
-      address: (<div className="text"><p>{ `${c.streetAddress}`}<br/>{`${c.city}, ${c.state} ${c.zipcode}`}<br/>{`${c.country}`}</p></div>),
-      map: (<div className="map"><img alt="map" src={`https://maps.googleapis.com/maps/api/staticmap?key=AIzaSyBkhJbCFVw-NdEmdMdtoKXSReLi6oynmLo&center=${c.latitude},${c.longitude}&zoom=13${mapstyle}${c.latitude},${c.longitude}`}/></div>),
+      address: (<div className="text"><p>{ `${c.streetAddress || ''}`}<br/>{`${c.city ? c.city + ' , ' : ''}${c.state || ''} ${c.zipcode || ''}`}<br/>{`${c.country || ''}`}</p></div>),
+      map: (c.latitude && c.longitude ? <div className="map"><img alt="map" src={`https://maps.googleapis.com/maps/api/staticmap?key=AIzaSyBkhJbCFVw-NdEmdMdtoKXSReLi6oynmLo&center=${c.latitude},${c.longitude}&zoom=13${mapstyle}${c.latitude},${c.longitude}`}/></div> : null),
       card: (<Card
-          type={c.ccType.toLowerCase()}
+          type={c.ccType ? c.ccType.toLowerCase() : ''}
           name={c.firstname + ' ' + c.lastname}
           number={c.ccNumber}
           cvc={c.ccv2}
@@ -101,35 +139,35 @@ class ContactView extends Component {
     const details = c ? {
       website: (<div className="website" key="website">
         <h4>Website</h4>
-        <p><a href={`http://${c.domain}`}>{ c.domain }</a></p>
+        <p>{ c.domain ? (<a href={`http://${c.domain}`}>{ c.domain }</a>) : '' }</p>
       </div>),
       browsers: (<div className="browsers" key="browsers">
         <h4>Browsers</h4>
-        <p>{ c.browser }</p>
+        <p>{ c.browser || '' }</p>
       </div>),
       nationalId: (<div className="nationalId" key="nationalId">
         <h4>National Id</h4>
-        <p>{ c.nationalId }</p>
+        <p>{ c.nationalId || '' }</p>
       </div>),
       ups: (<div className="ups" key="ups">
         <h4>UPS</h4>
-        <p>{ c.ups }</p>
+        <p>{ c.ups || '' }</p>
       </div>),
       westernUnionMTCN: (<div className="westernUnionMTCN" key="westernUnionMTCN">
         <h4>Western Union MTCN</h4>
-        <p>{ c.westernUnionMTCN }</p>
+        <p>{ c.westernUnionMTCN || '' }</p>
       </div>),
       moneyGramMTCN: (<div className="moneyGramMTCN" key="moneyGramMTCN">
         <h4>MoneyGram MTCN</h4>
-        <p>{ c.moneyGramMTCN }</p>
+        <p>{ c.moneyGramMTCN || '' }</p>
       </div>),
       vehicle: (<div className="vehicle" key="vehicle">
         <h4>Vehicle</h4>
-        <p>{ c.vehicle }</p>
+        <p>{ c.vehicle || '' }</p>
       </div>),
       guid: (<div className="guid" key="guid">
         <h4>GUID</h4>
-        <p>{ c.guid }</p>
+        <p>{ c.guid || '' }</p>
       </div>),
     } : {};
 
