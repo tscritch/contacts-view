@@ -83,13 +83,18 @@ class ContactList extends Component {
 
           <ContactSearch handleSearch={ this.fuzzySearch } isDisabled={ this.state.isLoading }></ContactSearch>
 
-          <div className="list-header">
-            <div>First Name</div>
-            <div>Last Name</div>
-            <div>Email</div>
+          <div className="list">
+            <div className="list-header">
+              <div>First Name</div>
+              <div>Last Name</div>
+              <div>Email</div>
+            </div>
+
+            <div className="list-contacts">
+              { this.state.isLoading ? <Spin className="loading"></Spin> : contacts }
+            </div>
           </div>
 
-          { this.state.isLoading ? <Spin className="loading"></Spin> : contacts }
 
         </div>
       </Content>
