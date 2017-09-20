@@ -81,20 +81,30 @@
   display: inline-block;
 }
 
-.ContactView .more-details {
+.ContactView .more-info {
   padding: 30px 60px;
 }
 
-.ContactView .more-details h2 {
-  font-size: 30px;
+.ContactView .more-info h2 {
+  font-size: 36px;
   font-weight: bold;
 }
 
-.ContactView .more-details h4 {
+.ContactView .more-info .info {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.ContactView .more-info .info .detail {
+  width: 300px;
+  padding: 16px;
+}
+
+.ContactView .more-info .info .detail h4 {
   font-size: 18px;
   font-weight: bold;
 }
 
-.ContactView .more-details p {
+.ContactView .more-info .info .detail p {
   font-size: 14px;
 }

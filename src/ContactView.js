@@ -137,35 +137,35 @@ class ContactView extends Component {
     } : {};
 
     const details = c ? {
-      website: (<div className="website" key="website">
+      website: (<div className="website detail" key="website">
         <h4>Website</h4>
         <p>{ c.domain ? (<a href={`http://${c.domain}`}>{ c.domain }</a>) : '' }</p>
       </div>),
-      browsers: (<div className="browsers" key="browsers">
+      browsers: (<div className="browsers detail" key="browsers">
         <h4>Browsers</h4>
         <p>{ c.browser || '' }</p>
       </div>),
-      nationalId: (<div className="nationalId" key="nationalId">
+      nationalId: (<div className="nationalId detail" key="nationalId">
         <h4>National Id</h4>
         <p>{ c.nationalId || '' }</p>
       </div>),
-      ups: (<div className="ups" key="ups">
+      ups: (<div className="ups detail" key="ups">
         <h4>UPS</h4>
         <p>{ c.ups || '' }</p>
       </div>),
-      westernUnionMTCN: (<div className="westernUnionMTCN" key="westernUnionMTCN">
+      westernUnionMTCN: (<div className="westernUnionMTCN detail" key="westernUnionMTCN">
         <h4>Western Union MTCN</h4>
         <p>{ c.westernUnionMTCN || '' }</p>
       </div>),
-      moneyGramMTCN: (<div className="moneyGramMTCN" key="moneyGramMTCN">
+      moneyGramMTCN: (<div className="moneyGramMTCN detail" key="moneyGramMTCN">
         <h4>MoneyGram MTCN</h4>
         <p>{ c.moneyGramMTCN || '' }</p>
       </div>),
-      vehicle: (<div className="vehicle" key="vehicle">
+      vehicle: (<div className="vehicle detail" key="vehicle">
         <h4>Vehicle</h4>
         <p>{ c.vehicle || '' }</p>
       </div>),
-      guid: (<div className="guid" key="guid">
+      guid: (<div className="guid detail" key="guid">
         <h4>GUID</h4>
         <p>{ c.guid || '' }</p>
       </div>),
@@ -206,10 +206,12 @@ class ContactView extends Component {
 
         { this.state.isLoading ? <Spin></Spin> : null }
 
-        <div className="more-details">
+        <div className="more-info">
           <h2>More Details</h2>
 
-          { Object.keys(details).map((key) => (details[key])) }
+          <div className="info">
+            { Object.keys(details).map((key) => (details[key])) }
+          </div>
 
         </div>
 
