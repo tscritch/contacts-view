@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Route } from 'react-router-dom';
-import { Layout } from 'antd';
+import { Layout, Icon } from 'antd';
 import ContactList from './ContactList';
 import ContactView from './ContactView';
 import logo from './sibi.png';
@@ -15,7 +15,7 @@ class App extends Component {
         <Layout>
           <Header>
             <img src={logo} style={{ height: "90%" }} alt="logo"></img>
-            <div className="link"><a href="https://sibi-form-tadscritch.herokuapp.com"><p>Create Contact</p></a></div>
+            <div className="link"><a href="https://sibi-form-tadscritch.herokuapp.com"><p>Create Contact</p><div className="arrow"><Icon type="arrow-right"></Icon></div></a></div>
           </Header>
           <Route exact path="/" component={ ContactList } />
           <Route path="/contacts/:id" component={ ContactView } />
